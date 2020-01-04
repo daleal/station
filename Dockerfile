@@ -69,5 +69,9 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
+# Run as non-root user
+RUN adduser -D myuser
+USER myuser
+
 # Start the main process.
 CMD ["puma", "-C", "config/puma.rb"]
