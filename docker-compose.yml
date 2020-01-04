@@ -10,7 +10,7 @@ services:
     build:
       context: .
     volumes:
-      - .:/myapp
+      - .:/var/app
     ports:
       - "3000:3000"
     env_file: .env
