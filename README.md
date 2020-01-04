@@ -57,6 +57,14 @@ After that, create a new `heroku` app:
 heroku create
 ```
 
+Don't forget to add the `heroku-postgresql` addon to your `heroku` app (when deploying to `heroku`, only the Rails app will be deployed, and the `postgresql` container used locally must be replaced with the `heroku-postgresql` addon):
+
+```sh
+heroku addons:create heroku-postgresql:hobby-dev
+```
+
+This command will add the **free** basic `heroku-postgresql` addon to your app (you can upgrade this later if you desire).
+
 Next, build the image and push it to Container Registry:
 
 ```sh
@@ -70,3 +78,5 @@ heroku container:release web
 ```
 
 **Important Note**: Once your app is created, to push new changes you only have to run `heroku container:push web` and then `heroku container:release web`.
+
+To open the app in a browser, you can run `heroku open`. You can also access directly using the app's URL.
