@@ -57,7 +57,7 @@ After that, create a new `heroku` app:
 heroku create
 ```
 
-Don't forget to add the `heroku-postgresql` addon to your `heroku` app (when deploying to `heroku`, only the Rails app will be deployed, and the `postgresql` container used locally must be replaced with the `heroku-postgresql` addon):
+Don't forget to add the `heroku-postgresql` addon to your `heroku` app (when deploying to `heroku`, only the Rails app will be deployed, and the `postgres` container used locally must be replaced with the `heroku-postgresql` addon):
 
 ```sh
 heroku addons:create heroku-postgresql:hobby-dev
