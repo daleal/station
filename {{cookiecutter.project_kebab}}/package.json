@@ -1,5 +1,5 @@
 {
-  "name": "myapp",
+  "name": "{{cookiecutter.project_kebab}}",
   "private": true,
   "dependencies": {
     "@rails/ujs": "^6.0.0",

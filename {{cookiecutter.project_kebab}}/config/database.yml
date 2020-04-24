@@ -8,12 +8,12 @@ default: &default
 
 production:
   <<: *default
-  database: myapp_production
+  database: {{cookiecutter.project_kebab}}_production
 
 development:
   <<: *default
-  database: myapp_development
+  database: {{cookiecutter.project_kebab}}_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: {{cookiecutter.project_kebab}}_test
