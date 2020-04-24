@@ -1,0 +1,10 @@
+# Virtualenvs
+.venv
+
+# Editors
+.vscode
+
+# Auto-generated trash
+__pycache__
+.DS_Store
+*.egg-info

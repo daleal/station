@@ -1,4 +1,4 @@
-# {{cookiecutter.project_title}}
+# Rails Template
 
 Lightweight Rails 6 template built with `Docker` and `docker-compose` to **_plug and play_** with a final image size of just `~162MB`.
 

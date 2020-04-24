@@ -8,12 +8,12 @@ default: &default
 
 production:
   <<: *default
-  database: {{cookiecutter.project_kebab}}_production
+  database: {{cookiecutter.project_snake}}_production
 
 development:
   <<: *default
-  database: {{cookiecutter.project_kebab}}_development
+  database: {{cookiecutter.project_snake}}_development
 
 test:
   <<: *default
-  database: {{cookiecutter.project_kebab}}_test
+  database: {{cookiecutter.project_snake}}_test
