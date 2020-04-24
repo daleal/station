@@ -37,6 +37,7 @@ RUN poetry export -f requirements.txt --dev | /.venv/bin/pip install -r /dev/std
 
 # Final image
 FROM python:3.8.2-slim-buster AS final
+LABEL maintainer="dlleal@uc.cl"
 
 # Set up environmental variables
 ENV LANG=C.UTF-8
