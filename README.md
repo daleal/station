@@ -2,6 +2,10 @@
 
 Lightweight Rails 6 generator template built with `Docker` and `docker-compose` to **_plug and play_** with a final image size of just `~162MB`.
 
+## But... **Why**?
+
+If you are anything like me, you probably also hate having to download extra tooling **just** to generate the boilerplate project. With Docker, I can generate the project and then run it using only one tool. I love that! Also, the template has a **_plug and play_** philosophy, so it will **just work**, and I like that too.
+
 ## Using Station
 
 To use the generator, **you don't need to download/clone anything**. Just run the following command:
