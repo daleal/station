@@ -119,3 +119,7 @@ heroku container:release web
 **Important Note**: Once your app is created, to push new changes you only have to run `heroku container:push web` and then `heroku container:release web`.
 
 To open the app in a browser, you can run `heroku open`. You can also access directly using the app's URL.
+
+## Additional Features
+
+The template also includes a Pull Request template. That means that every Pull Request's comment will get **automagically** filled with a default structure that can get altered.
