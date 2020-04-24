@@ -1,0 +1,16 @@
+# Ignore everything
+*
+
+# Include application files
+!station.py
+!{{cookiecutter.project_kebab}}
+!cookiecutter.json
+
+# Include build files
+!entrypoint.sh
+!pyproject.toml
+!poetry.lock
+
+# Include misc files
+!README.md
+!LICENCE
