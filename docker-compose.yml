@@ -11,6 +11,7 @@ services:
   web:
     build:
       context: .
+    init: true
     volumes:
       - .:/var/app
     ports:
