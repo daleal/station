@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "station"
+version = "0.1.0"
+description = "The place you go to find your Rails."
+authors = ["Daniel Leal <dlleal@uc.cl>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+cookiecutter = "~1.7"
+pylint = "^2.4"
+flake8 = "^3.7"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

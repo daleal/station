@@ -1,24 +1,10 @@
-# Ignore .env file
-.env
+# Virtualenvs
+.venv
 
-# Ignore bundler config.
-/.bundle
+# Editors
+.vscode
 
-# Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-
-# Ignore uploaded files in development
-/storage/*
-
-/node_modules
-/yarn-error.log
-
-/public/assets
-.byebug_history
-
-# Ignore master key for decrypting credentials and more.
-/config/master.key
-
-# Unignore .gitkeep files
-!.gitkeep
+# Auto-generated trash
+__pycache__
+.DS_Store
+*.egg-info

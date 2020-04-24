@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-# Remove a potentially pre-existing server.pid for Rails.
-rm -f /var/app/tmp/pids/server.pid
+# Activate virtual env
+. /.venv/bin/activate
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
-exec "$@"
+python station.py "$@"

@@ -2,24 +2,15 @@
 *
 
 # Include application files
-!app
-!bin
-!config
-!db
-!lib
-!public
-public/assets/*
-!test
-!vendor
-!config.ru
-!package.json
-!Rakefile
+!station.py
+!{{cookiecutter.project_kebab}}
+!cookiecutter.json
 
 # Include build files
-!.ruby-version
-!Gemfile
-!Gemfile.lock
 !entrypoint.sh
+!pyproject.toml
+!poetry.lock
 
 # Include misc files
-!LICENSE
+!README.md
+!LICENCE

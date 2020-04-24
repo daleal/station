@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:12.2
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust  # Insecure connection, only for local
+    networks:
+      - backend
+  web:
+    build:
+      context: .
+    init: true
+    volumes:
+      - .:/var/app
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on:
+      - db
+    networks:
+      - backend
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  backend:
