@@ -87,7 +87,24 @@ Notice that `Docker` is smart and if you run `docker-compose build` and the `Gem
 
 ### Heroku Deployment
 
-To deploy to `heroku` using Container Registry, make sure to be logged in to the platform (`heroku login`). Then, log in to Container Registry:
+#### Automagic Deployment
+
+The template includes a GitHub Action to **automagically** deploy your app to `heroku`! On every push to `master` (or whenever a Pull Request gets merged into `master`), the workflow will trigger and build, push and deploy your app to `heroku`, including database migrations! For this **magic** to work, make sure to do the following stuff:
+
+1. Get your `heroku` API Key from your `heroku` dashboard and add it as a GitHub Secret to your repository with a key corresponding to `HEROKU_API_KEY`.
+2. Make sure to have a `heroku` app created. Get the app name and add it as a GitHub Secret to your repository with a key corresponding to `APP_NAME`.
+3. Make sure that your app has the `heroku-postgresql` addon provisioned. You can provision it from the dashboard or by running `heroku addons:create heroku-postgresql:hobby-dev -a <appname>` from your terminal, where `<appname>` corresponds to the name of your `heroku` app.
+
+So, to sum up, you should have the following GitHub Secrets in your repo:
+
+- `HEROKU_API_KEY`: your API key for `heroku`
+- `APP_NAME`: the name of your app in `heroku`
+
+That's it! Your app should be now deploying **automagically**!
+
+#### Manual Deployment
+
+If you still want to deploy your app manually, you can use the Container Registry. To deploy to `heroku` using Container Registry, make sure to be logged in to the platform (`heroku login`). Then, log in to Container Registry:
 
 ```
 heroku container:login
