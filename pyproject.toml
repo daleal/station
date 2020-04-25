@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "station"
-version = "0.2.0"
+version = "0.2.1"
 description = "The place you go to find your Rails."
 authors = ["Daniel Leal <dlleal@uc.cl>"]
 
