@@ -2,9 +2,7 @@
 *
 
 # Include application files
-!station.py
-!{{cookiecutter.project_kebab}}
-!cookiecutter.json
+!runner.sh
 
 # Include build files
 !entrypoint.sh
