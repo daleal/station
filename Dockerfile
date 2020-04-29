@@ -42,6 +42,11 @@ LABEL maintainer="dlleal@uc.cl"
 # Set up environmental variables
 ENV LANG=C.UTF-8
 
+# Install git
+RUN apt-get update && \
+    apt-get install -y git && \
+    rm -rf /var/lib/apt/lists/*
+
 # Set up base workdir
 WORKDIR /station
 
