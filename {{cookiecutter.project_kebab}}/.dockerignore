@@ -8,18 +8,22 @@
 !db
 !lib
 !public
-public/assets/*
 !test
 !vendor
 !config.ru
-!package.json
 !Rakefile
 
 # Include build files
-!.ruby-version
+!docker
 !Gemfile
 !Gemfile.lock
-!entrypoint.sh
+!package.json
+!yarn.lock
+
+# Include configuration files
+!babel.config.js
+!postcss.config.js
 
 # Include misc files
-!LICENSE
+!.ruby-version
+!entrypoint.sh
