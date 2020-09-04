@@ -1,0 +1,41 @@
+FROM ruby:2.7.0-slim-buster AS builder
+
+# Install necessary dependencies
+RUN apt-get update && apt-get install -y  \
+        curl \
+        build-essential \
+        libpq-dev && \
+        curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+        apt-get update && apt-get install -y nodejs yarn && \
+        rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/app
+
+# Install node dependencies
+COPY package.json yarn.lock ./
+RUN yarn install
+
+# Add node_modules binaries to the PATH
+ENV PATH="/usr/src/app/node_modules/.bin:$PATH"
+
+# Install gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Get application content
+COPY . .
+
+# Build assets
+RUN bundle exec rails assets:precompile
+
+FROM nginx:1.19.2-alpine
+
+LABEL maintainer="dlleal@uc.cl"
+
+COPY --from=builder /usr/src/app/public /usr/share/nginx/html/
+
+COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
+
+CMD ["nginx"]

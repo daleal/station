@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile.web
+      args:
+        NODE_ENV: production
+        RAILS_ENV: production
+    init: true
+    environment:
+      NODE_ENV: production
+      RAILS_ENV: production
+    env_file: .env.production
+    networks:
+      - backend
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile.nginx
+    volumes:
+      - ./log/nginx:/logs
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    networks:
+      - backend
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  backend:

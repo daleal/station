@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   db:
-    image: postgres:12.2
+    image: postgres:12.3
     volumes:
       - data:/var/lib/postgresql/data
     environment:
@@ -11,16 +11,38 @@ services:
   web:
     build:
       context: .
+      dockerfile: ./docker/app/Dockerfile.web
     init: true
     volumes:
-      - .:/var/app
+      - .:/usr/src/app
     ports:
       - "3000:3000"
-    env_file: .env
+    environment:
+      NODE_ENV: development
+      RAILS_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: webpacker
     depends_on:
       - db
+      - webpacker
     networks:
       - backend
+      - frontend
+  webpacker:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile.web
+    init: true
+    environment:
+      NODE_ENV: development
+      RAILS_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3035:3035"
+    networks:
+      - frontend
 
 volumes:
   data:
@@ -28,3 +50,4 @@ volumes:
 
 networks:
   backend:
+  frontend:
