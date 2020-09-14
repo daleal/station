@@ -39,6 +39,7 @@ services:
     command: ./bin/webpack-dev-server
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - "3035:3035"
     networks:
