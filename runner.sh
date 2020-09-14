@@ -3,7 +3,7 @@ cd base
 
 # Get template
 echo "Getting template files..."
-git clone --branch stable https://github.com/daleal/station.git &> /dev/null
+git clone --branch master https://github.com/daleal/station.git &> /dev/null
 cd station
 
 # Run python script
