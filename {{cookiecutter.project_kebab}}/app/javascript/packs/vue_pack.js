@@ -5,7 +5,9 @@ import App from '../app.vue'
 Vue.use(TurbolinksAdapter)
 
 document.addEventListener('turbolinks:load', () => {
-  new Vue({
-    render: (h) => h(App),
-  }).$mount('#hello');
+  if (document.getElementById('hello')) {
+    new Vue({
+      render: (h) => h(App),
+    }).$mount('#hello');
+  }
 })
